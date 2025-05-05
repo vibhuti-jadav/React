@@ -1,0 +1,7 @@
+-----------------npx-installation-----------------------
+
+npx create-react-app my-new-app
+
+-----------------vite-installation-----------------------
+
+npm create vite@latest my-react-app
