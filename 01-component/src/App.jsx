@@ -14,6 +14,8 @@ function App() {
 
       <Card/>
 
+   
+
       <Gallary/>
 
       <Footer/>
