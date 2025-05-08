@@ -1,7 +1,7 @@
 import React from 'react'
  import Card from './Card'
  
- const Products = ({data}) => {
+ const Products = ({data,handleCart}) => {
  
    return (
      <div>
@@ -10,8 +10,8 @@ import React from 'react'
              <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
                        {
                            data.map((ele)=>(
-                                     <Card key={ele.id} {...ele} />
-                                
+                                     <Card key={ele.id} {...ele} handleCart={handleCart}/>
+                                   
                              ))
                          }
              </div>

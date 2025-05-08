@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = ({len}) => {
+const Navbar = ({len,count}) => {
   return (
     <div>
          <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -34,6 +34,11 @@ const Navbar = ({len}) => {
         </li>
         <li>
         <span class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-pink-900 dark:text-pink-300">Products-{len}</span>
+        <span class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-pink-900 dark:text-pink-300">Count-{count}</span>
+
+
+        
+
           </li>
       </ul>
     </div>
