@@ -59,7 +59,9 @@ function App() {
               <div key={ele.id} className='flex gap-x-50 p-3'>
                   <h3 className='font-bold pl-2  text-2xl'>{ele.task}</h3>
                   <button className='text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center p-2 rounded-md' onClick={() => handleUpdate(ele.id)}  >{ele.status ? "Completed" : "not Completed" }</button>
-            <button className=''>Delete</button>
+        
+            <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Delete</button>
+
             </div>
             
             
