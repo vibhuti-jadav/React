@@ -76,7 +76,7 @@ function App() {
         </div>
       </div>
 
-      <div className="  rounded w-5xl my-5 gap-5 flex flex-col  mx-auto">
+      <div className="  rounded w-5xl my-5 gap-5 flex flex-col mx-auto">
         {todo.map((ele) => (
           <div key={ele.id} className="flex rounded-3xl gap-x-50 p-3 gap-y-5 border items-center">
             {editingId === ele.id ? (
