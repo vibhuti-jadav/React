@@ -8,7 +8,6 @@ import { RiHeartFill, RiHome2Fill, RiInbox2Line } from '@remixicon/react';
 
 function App() {
 
-
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
