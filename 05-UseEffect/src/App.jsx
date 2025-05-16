@@ -44,9 +44,6 @@ function App() {
 
   return (
     <>
-
-   
-
       {/* <RiInbox2Line/> */}
       <div className="flex mx-auto mb-4 gap-20">
         <label htmlFor="simple-search" className="sr-only">
