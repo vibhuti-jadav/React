@@ -30,7 +30,6 @@ function App() {
   },[filter])
 
 
-
   useEffect(()=>{
     fetch('https://dummyjson.com/products/category-list')
     .then((res)=>res.json())
