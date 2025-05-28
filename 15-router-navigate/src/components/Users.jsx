@@ -18,7 +18,7 @@ const Users = () => {
 
   return (
     <Container>
-      <Row className="row-cols-4 g-3 justify-content-center">
+      <Row className="row-cols-4 g-3 mt-5 justify-content-center">
         {data.map((ele) => (
           <Col>
             <Cards {...ele} />

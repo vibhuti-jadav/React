@@ -14,6 +14,7 @@ function App() {
 
   const navigate = useNavigate()
   const location =useLocation()
+  
 
     function handleChange(e){
         const {name, value} = e.target
@@ -30,7 +31,6 @@ function App() {
         navigate("/home")
       }
     }
-  
     const hideNavbar = location.pathname == "/"
 
   return (
