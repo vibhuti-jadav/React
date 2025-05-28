@@ -16,7 +16,7 @@ function NavbarExample() {
              <NavLink className={ ({isActive}) => isActive ? `nav-link text-white` : 'nav-link'} to='/about' >  About  </NavLink>  
              <NavLink className={ ({isActive}) => isActive ? `nav-link text-white` : 'nav-link'} to='/users' >  Users  </NavLink>  
              <NavLink className={ ({isActive}) => isActive ? `nav-link text-white` : 'nav-link'} to='/contact' >  Contact  </NavLink>  
-             <NavLink className='btn btn-danger btn-sm' to='/' >  Login  </NavLink>  
+             <NavLink className='btn btn-success btn-sm' to='/' >  Login  </NavLink>  
           </Nav>
         </Navbar.Collapse>
       </Container>

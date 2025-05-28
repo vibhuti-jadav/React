@@ -2,18 +2,25 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router';
 
-function Cards({id,name, email, picture}) {
+function Cards({id,image,title,brand,price,model}) {
   return (
-    <Card className='text-center p-2 h-100' >
-      <Card.Img variant="top" className='rounded-circle ' src={picture.large} />
+    <Card className='text-center p-2 h-100 mt-5 border bg-dark text-white' >
+      <Card.Img variant="top" className='rounded ' src={image} />
       <Card.Body>
-        <Card.Title>{name.title} { name.first} {name.last}</Card.Title>
-        <Card.Text>
-          {email}
+        <Card.Title className='fs-6'>{title}</Card.Title>
+        <Card.Text className='text-white fs-2 '>
+          ${price}
         </Card.Text>
-        <Link to={`/user/${id.value}`}><Button variant="primary">More</Button></Link>
+        <Card.Text className=''>
+          {brand} 
+        </Card.Text>
+       
+        <Link to={`/user/${id}`}><Button variant="primary" size='md' className='px-5'>More</Button></Link>
       </Card.Body>
     </Card>
+
+
+
   );
 }
 

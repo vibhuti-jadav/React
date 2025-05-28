@@ -18,7 +18,7 @@ const Login = ({handleChange, handleLogin}) => {
         <Form.Control name="password" onChange={handleChange} type="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3 text-center" controlId="formGroupPassword">
-        <Button onClick={()=>handleLogin()} variant='success'>Login</Button>
+        <Button onClick={()=>handleLogin()} variant="success">Login</Button>
       </Form.Group>
     </Form>
     </Container>

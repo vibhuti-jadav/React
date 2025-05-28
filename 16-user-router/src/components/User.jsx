@@ -6,13 +6,13 @@ import { useParams } from 'react-router'
 
 const User = () => {
 
-    const [sdata, setSdata] = useState([])
+    const [sdata, setSdata] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
  
-const {userId}  = useParams()
+const {id}  = useParams()
 
-console.log(userId)
+console.log(id)
 
 
     
@@ -20,10 +20,12 @@ console.log(userId)
 
         try {
             // const res = await fetch(`https://randomuser.me/api?id=${userId}`);
-            const res = await fetch(`https://dummyjson.com/users?id=${id}`);
+            // const res = await fetch(`https://dummyjson.com/users?id=${id}`);
+            // const res = await fetch(`https://api.escuelajs.co/api/v1/users?id=${id}`);
+            const res = await fetch(`https://fakestoreapi.in/api/products/${id}`);
             const data = await res.json()
-            console.log(data.results)
-            setSdata(data.results)
+            console.log(data.product)
+            setSdata(data.product)
                 
             setLoading(false)
 
@@ -36,10 +38,10 @@ console.log(userId)
         useEffect(()=>{
        
                 fetUsers()
-        }, [userId])
+        }, [id])
     
     
-
+console.log(sdata)
 
 
   return (
@@ -61,29 +63,35 @@ console.log(userId)
         </Alert>
         </Container>
         :
-    <Container className='mt-5'>
+    <Container className='mt-5 '>
        {
-        sdata.users.map((ele)=>(
-            <Card className='text-start p-2 h-100' >
+        
+            <Card className='text-start p-2 bg-dark text-white h-100' >
                 <Row>
                 <Col className='col-4'>
-                    <Card.Img variant="top" className='rounded-circle ' src={ele.image} />
+                    <Card.Img variant="top" className='rounded ' src={sdata.image} />
                 </Col>
                 <Col className='col-8'>
                         <Card.Body>
-                            <Card.Title>{ele.firstName} { ele.lastName} {ele.maidenName}</Card.Title>
+                            <Card.Title>{sdata.title} </Card.Title>
                             <Card.Text>
-                            {ele.email}
+                            {sdata.price}
+                            </Card.Text>
+                            <Card.Text>
+                            {sdata.description}
                             </Card.Text>
                             <Card.Subtitle>
-                            {ele.gender}
+                            {sdata.brand}
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                            {sdata.model}
                             </Card.Subtitle>
                             <Button variant="primary">More</Button>
                         </Card.Body>
                 </Col>
                 </Row>
             </Card>
-        ))
+       
        }
     </Container>
      }
