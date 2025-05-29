@@ -11,6 +11,7 @@ import Home from './components/home'
 
 function App() {
   const [log, setLog] = useState({email:"", password:""})
+  const [list, setList] = useState([])
 
   const navigate = useNavigate()
   const location =useLocation()
@@ -31,18 +32,23 @@ function App() {
         navigate("/home")
       }
     }
+
+         function friend(ele){
+        setList([...list, ele])
+      }
+
     const hideNavbar = location.pathname == "/"
 
   return (
     <>
-    {!hideNavbar && <NavbarExample/>}
+    {!hideNavbar && <NavbarExample list={list}/>}
 
 
         <Routes>
           <Route path="/home" element={ <Home/>} />
           <Route path="/" element={ <Login handleChange={handleChange} handleLogin={handleLogin} />} />
           <Route path="/about" element={ <About/>} />
-          <Route path="/users"  element={ <Users />} />
+          <Route path="/users"  element={ <Users friend={friend} list={list}/>} />
           <Route path="/contact" element={ <Contact/>} />
           <Route path="/user/:userId" element={ <User/>} />
         </Routes>

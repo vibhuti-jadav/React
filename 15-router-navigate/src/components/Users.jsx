@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import Cards from "./Cards";
-const Users = () => {
+
+
+const Users = ({friend,list}) => {
+  
   const [data, setData] = useState([]);
 
   const fetUsers = async () => {
@@ -21,7 +24,7 @@ const Users = () => {
       <Row className="row-cols-4 g-3 mt-5 justify-content-center">
         {data.map((ele) => (
           <Col>
-            <Cards {...ele} />
+            <Cards {...ele} key={ele.id.value} friend={friend} list={list} />
           </Col>
         ))}
       </Row>

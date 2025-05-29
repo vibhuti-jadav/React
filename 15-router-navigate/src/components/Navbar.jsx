@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router';
 
-function NavbarExample() {
+function NavbarExample({list}) {
   return (
     <Navbar expand="lg" className="bg-dark navbar-dark">
       <Container>
@@ -17,6 +17,8 @@ function NavbarExample() {
              <NavLink className={ ({isActive}) => isActive ? `nav-link text-white` : 'nav-link'} to='/users' >  Users  </NavLink>  
              <NavLink className={ ({isActive}) => isActive ? `nav-link text-white` : 'nav-link'} to='/contact' >  Contact  </NavLink>  
              <NavLink className='btn btn-danger btn-sm' to='/' >  Login  </NavLink>  
+             
+             <NavLink className='btn btn-outline-light btn-sm' to='/' > 👥- {list.length}  </NavLink>  
           </Nav>
         </Navbar.Collapse>
       </Container>
