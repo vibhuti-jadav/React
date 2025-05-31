@@ -1,8 +1,10 @@
 import { createContext, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react'
+import { toast } from "react-toastify";
 
 export const TodoContext = createContext();
+
 
 const TodoContextProvider = ({children}) => {
 
@@ -22,11 +24,24 @@ function handleTask(){
             status:false,
         }
     ])
+    toast("task added successfully..")
 }
+
+function handleDelete(id){
+    const del = list.filter(item =>item.id !==id)
+    setList(del)
+    toast("note deleted successfully...")
+    
+}
+
+
+
+
+
 console.log(list)
 
   return (
-    <TodoContext.Provider value={{handleChange,handleTask,list,note}}>
+    <TodoContext.Provider value={{handleChange,handleTask,list,note,handleDelete}}>
         {children}
     </TodoContext.Provider>
   )
