@@ -10,6 +10,7 @@ const TodoContextProvider = ({children}) => {
 
 const [note,setNote] =useState("")
 const [list, setList]=useState([])
+const [noteid,setnoteid]=useState("")
 
 function handleChange(e){
     setNote(e.target.value)
@@ -25,7 +26,41 @@ function handleTask(){
         }
     ])
     toast("task added successfully..")
+
+    setNote("")
 }
+
+function editTask(ele)
+{
+    console.log(ele)
+    setNote(ele.note)
+    setnoteid(ele.id)
+}
+
+
+
+function UpdateTask(){
+    let newList = list.map((ele)=>{
+        if(ele.id == noteid)
+        {
+            ele.note =note
+        }
+        return ele
+    })
+
+    setList(newList)
+    setNote("")
+    setnoteid("")
+
+    toast("note updated successfully...")
+}
+
+function changeStatus(id){
+    setList(list.map((ele)=>
+        ele.id  == id ? {...ele,status:!ele.status}:ele
+    ))
+}
+
 
 function handleDelete(id){
     const del = list.filter(item =>item.id !==id)
@@ -38,10 +73,11 @@ function handleDelete(id){
 
 
 
+
 console.log(list)
 
   return (
-    <TodoContext.Provider value={{handleChange,handleTask,list,note,handleDelete}}>
+    <TodoContext.Provider value={{handleChange,handleTask,list,note,handleDelete,editTask,noteid,UpdateTask,changeStatus}}>
         {children}
     </TodoContext.Provider>
   )
