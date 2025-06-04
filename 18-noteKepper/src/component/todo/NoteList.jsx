@@ -12,7 +12,7 @@ const NoteList = () => {
           list.map((ele) => (
             <div key={ele.id} className='rounded-md mt-5 border border-blue-400 p-2'>
               <h4 className='font-bold'>{ele.note}</h4>
-              <p onClick={()=>changeStatus(ele.id)}  className={ele.status ? 'text-green-600' : 'text-red-600'}>{
+              <p onClick={()=>changeStatus(ele.id)}  className={ele.status ? 'bg-green-100 text-green-800 my-1 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-green-900 dark:text-green-300' : 'bg-red-100 text-red-800 text-xs my-1 font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-red-900 dark:text-red-300'}>{
                   ele.status ?  <span>Complete</span> : <span>Not Complite</span>
                 }</p>
   
