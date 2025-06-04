@@ -16,7 +16,12 @@ const NoteList = () => {
                   ele.status ?  <span>Complete</span> : <span>Not Complite</span>
                 }</p>
   
-                
+                {
+                  ele.newinput &&
+                  <p>
+                    {ele.newinput}
+                  </p>
+                }
 
               <div>
                 <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>
