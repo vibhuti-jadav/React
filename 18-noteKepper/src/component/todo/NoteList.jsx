@@ -23,6 +23,14 @@ const NoteList = () => {
                   </p>
                 }
 
+                {ele.todos &&  (
+      <ul  className="list-disc ml-6 mt-2 text-sm text-gray-600">
+        {ele.todos.map((todo, idx) => (
+          <li key={idx}>{todo}</li>
+        ))}
+      </ul>
+    )}
+
               <div>
                 <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>
                  <TrashIcon className="size-6 text-blue-500"/>
