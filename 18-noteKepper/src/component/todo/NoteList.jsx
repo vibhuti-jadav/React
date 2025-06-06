@@ -23,13 +23,13 @@ const NoteList = () => {
                   </p>
                 }
 
-                {/* {ele.todos &&  (
-      <ul  className="list-disc ml-6 mt-2 text-sm text-gray-600">
-        {ele.todos.map((todo, idx) => (
-          <li key={idx}>{todo}</li>
-        ))}
-      </ul>
-    )} */}
+                {/*{ele.todos &&  (
+                      <ul  className="list-disc ml-6 mt-2 text-sm text-gray-600">
+                        {ele.todos.map((todo, idx) => (
+                          <li key={idx}>{todo}</li>
+                        ))}
+                      </ul>
+                    )}*/}
 
           {ele.todos && (
             <ul className="list-disc ml-1 mt-2 text-sm text-gray-600">

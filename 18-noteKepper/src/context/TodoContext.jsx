@@ -38,6 +38,7 @@ function handleTask(){
 
     setNote("")
     setNoteList("")
+    
 }
 
 function editTask(ele)
@@ -76,6 +77,7 @@ function UpdateTask(){
     setNewinput("")
     setNoteList([])
     setNum(0)
+    
     
 
     toast("note updated successfully...")
