@@ -23,15 +23,26 @@ const NoteList = () => {
                   </p>
                 }
 
-                {ele.todos &&  (
+                {/* {ele.todos &&  (
       <ul  className="list-disc ml-6 mt-2 text-sm text-gray-600">
         {ele.todos.map((todo, idx) => (
           <li key={idx}>{todo}</li>
         ))}
       </ul>
-    )}
+    )} */}
 
-              <div>
+          {ele.todos && (
+            <ul className="list-disc ml-1 mt-2 text-sm text-gray-600">
+              {ele.todos.map((todo, idx) => (
+                <li key={idx} className="flex items-center space-x-1">
+                  <input type="checkbox" id={`todo-${idx}`} className="form-checkbox" />
+                  <label htmlFor={`todo-${idx}`} className="ml-1">{todo}</label>
+                </li>
+              ))}
+            </ul>
+          )}
+
+     <div>
                 <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>
                  <TrashIcon className="size-6 text-blue-500"/>
                 </button>
