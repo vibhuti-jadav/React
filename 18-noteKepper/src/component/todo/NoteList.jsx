@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { TodoContext } from '../../context/TodoContext'
-import { PencilSquareIcon, TrashIcon } from '@heroicons/react/16/solid'
+import { MapPinIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/16/solid'
+import { RiHeartFill, RiPushpin2Fill } from "@remixicon/react";
 
 const NoteList = () => {
 
@@ -30,7 +31,7 @@ const NoteList = () => {
                         ))}
                       </ul>
                     )}*/}
-
+{/* 
           {ele.todos && (
             <ul className="list-disc ml-1 mt-2 text-sm text-gray-600">
               {ele.todos.map((todo, idx) => (
@@ -40,9 +41,32 @@ const NoteList = () => {
                 </li>
               ))}
             </ul>
-          )}
+          )} */}
+
+          {ele.todos && (
+                  <ul className="list-disc ml-1 mt-2 text-sm text-gray-600">
+                    {ele.todos.map((todo, index) => (
+                      <li key={index} className="flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          id={`todo-${ele.id}-${index}`}
+                          className="peer"
+                        />
+                        <label
+                          htmlFor={`todo-${ele.id}-${index}`}
+                          className="ml-1 peer-checked:line-through peer-checked:text-gray-400"
+                        >
+                          {todo}
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
      <div>
+     
+
+
                 <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>
                  <TrashIcon className="size-6 text-blue-500"/>
                 </button>
@@ -53,7 +77,7 @@ const NoteList = () => {
               </div>
             </div>
           ))
-        }
+        } 
       </div>
    </>
   )
