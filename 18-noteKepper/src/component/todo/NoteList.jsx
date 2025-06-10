@@ -64,7 +64,6 @@ const NoteList = () => {
                 )}
 
      <div>
-     
 
 
                 <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>

@@ -17,8 +17,18 @@ const TodoContextProvider = ({ children }) => {
     const [noteList, setNoteList] = useState([])
     const [editId, setEditId] = useState("")
 
-    const arr = JSON.parse(localStorage.getItem("notes")) || []
+   
 
+function setLocal(ta){
+    localStorage.setItem("note_arr",JSON.stringify(ta))
+    getLocal()
+}
+
+function getLocal(){
+       let note_arr = JSON.parse(localStorage.getItem("note_arr")) || []
+       setList(note_arr)
+
+}
 
     function handleChange(e) {
         setNote(e.target.value)
@@ -28,15 +38,22 @@ const TodoContextProvider = ({ children }) => {
 
     }
 
+    useEffect(()=>{
+        getLocal()
+    }, [])
+
     function handleNote(e, index) {
         // setNum(num+1)
         const updatedList = [...noteList];
         updatedList[index] = e.target.value;
         setNoteList(updatedList);
+
     }
 
+
+
     function handleTask() {
-        setList([
+        let newList = [
             ...list,
             {
                 id: uuidv4(),
@@ -45,7 +62,8 @@ const TodoContextProvider = ({ children }) => {
                 todos: noteList.filter((ele) => ele !== ""),
                 status: false,
             }
-        ])
+        ]
+        
         toast("task added successfully..")
 
         setNote("")
@@ -54,9 +72,7 @@ const TodoContextProvider = ({ children }) => {
         setNum(0)
         setNoteList([])
 
-        arr.push(list)
-        localStorage.setItem("notes", JSON.stringify(arr))
-    
+     setLocal(newList)
 
     }
 
@@ -65,10 +81,13 @@ const TodoContextProvider = ({ children }) => {
         setList(del)
         toast("note deleted successfully...")
 
+            setLocal(del)
+      
     }
 
     const addNewInput = () => {
         setNum(prev => prev + 1)
+    
     }
 
 
@@ -88,6 +107,8 @@ const TodoContextProvider = ({ children }) => {
         setNum(ele.todos.length)
         setNoteList(ele.todos || [])
    
+       
+
     }
 
 
@@ -112,6 +133,7 @@ const TodoContextProvider = ({ children }) => {
         setNoteList([])
         setNum(0)
         
+       setLocal(newList)
 
         toast("note updated successfully...")
     }
@@ -120,6 +142,9 @@ const TodoContextProvider = ({ children }) => {
         setList(list.map((ele) =>
             ele.id == id ? { ...ele, status: !ele.status } : ele
         ))
+
+        
+       
     }
 
     console.log(list)
@@ -133,7 +158,7 @@ const TodoContextProvider = ({ children }) => {
             handleTask,
             handleDelete,
             editTask,
-            list ,
+            list,
             note,
             noteid,
             count, 
