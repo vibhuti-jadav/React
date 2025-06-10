@@ -61,7 +61,7 @@ function getLocal(){
                 newinput,
                 todos: noteList.filter((ele) => ele !== ""),
                 status: false,
-            }
+              }
         ]
         
         toast("task added successfully..")
