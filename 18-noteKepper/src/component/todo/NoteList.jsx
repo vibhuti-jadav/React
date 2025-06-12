@@ -8,12 +8,11 @@ const NoteList = () => {
     const {list,handleDelete,editTask,changeStatus} =useContext(TodoContext)
   return (
     <>
-      <div className='grid grid-cols-4 gap-2 '>
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 mx-5 mt-5 gap-2 '>
         {
           list.map((ele) => (
-            <div key={ele.id} className='rounded-md mt-5 border border-blue-400 p-2'
-            
-            >
+            <div key={ele.id} className='rounded-md mt-5 border shadow shadow-gray-600 p-2 ' >
+
               <h4 className='font-bold'>{ele.note}</h4>
               <p onClick={()=>changeStatus(ele.id)}  className={ele.status ? 'bg-green-100 text-green-800 my-1 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-green-900 dark:text-green-300' : 'bg-red-100 text-red-800 text-xs my-1 font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-red-900 dark:text-red-300'}>{
                   ele.status ?  <span>Complete</span> : <span>Not Complite</span>
@@ -24,6 +23,8 @@ const NoteList = () => {
                   <p>
                     {ele.newinput}
                   </p>
+
+                  
                 }
 
                 {/*{ele.todos &&  (
@@ -68,11 +69,11 @@ const NoteList = () => {
      <div>
 
 
-                <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>
-                 <TrashIcon className="size-6 text-blue-500"/>
+                <button onClick={()=>handleDelete(ele.id)} className=' rounded-full p-1 mt-2 border bg-gray-100 hover:bg-gray-200'>
+                 <TrashIcon className="size-6 text-red-500"/>
                 </button>
 
-                <button  onClick={()=>editTask(ele)} className=' rounded-full p-1 bg-gray-100 hover:bg-gray-200'>
+                <button  onClick={()=>editTask(ele)} className=' rounded-full p-1 bg-gray-100 border ml-2 hover:bg-gray-200'>
                 <PencilSquareIcon className="size-6 text-blue-500"/>
                 </button>
               </div>

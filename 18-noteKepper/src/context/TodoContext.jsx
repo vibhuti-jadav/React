@@ -17,7 +17,14 @@ const TodoContextProvider = ({ children }) => {
     const [noteList, setNoteList] = useState([])
     const [editId, setEditId] = useState("")
 
-   
+        const [searchText, setSearchText] = useState("");
+
+            const filteredList = list.filter(item =>
+  item.note.toLowerCase().includes(searchText.toLowerCase())
+);
+
+
+
 
 function setLocal(ta){
     localStorage.setItem("note_arr",JSON.stringify(ta))
@@ -50,6 +57,14 @@ function getLocal(){
 
     }
 
+    function togglePin(id) {
+    const pinnedlist = list.map((item) => 
+        item.id === id ? { ...item, pinned: !item.pinned } : item
+    );
+    setList(pinnedlist);
+    setLocal(pinnedlist);
+}
+
 
 
     function handleTask() {
@@ -61,6 +76,7 @@ function getLocal(){
                 newinput,
                 todos: noteList.filter((ele) => ele !== ""),
                 status: false,
+                
               }
         ]
         
@@ -121,6 +137,7 @@ function getLocal(){
                     note,
                     newinput,
                     todos: noteList.filter((ele) => ele !== ""),
+                    
                 }
             }
             return ele
@@ -149,6 +166,8 @@ function getLocal(){
 
     console.log(list)
 
+    
+
 
     return (
         <TodoContext.Provider 
@@ -158,7 +177,7 @@ function getLocal(){
             handleTask,
             handleDelete,
             editTask,
-            list,
+            list:filteredList,
             note,
             noteid,
             count, 
@@ -173,6 +192,8 @@ function getLocal(){
             addNewInput,
             editId, 
             noteList,
+            setSearchText,
+            searchText,
         }}>
             {children}
         </TodoContext.Provider>
