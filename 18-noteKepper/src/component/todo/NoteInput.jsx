@@ -12,23 +12,60 @@ const NoteInput = () => {
          <>
 
 <div className="max-w-md mx-auto mt-30 ">   
-    
-    <div className="relative">
 
-            <input  value={note} onChange={handleChange}  className="block w-full shadow shadow-gray-700 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Add Notes" required />
+         <div className="relative">
+          <div className="absolute inset-y-0 start-0 flex items-center ps-3 ">
+            <svg
+              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </div>
+          <input
+            value={note}
+            onChange={handleChange}
+            className=" w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="add Title..."
+            required
+          />
+          <input
+            type="checkbox" checked={!!num}
+            onChange={() => {
+              setNum(num ? 0 :1 );
+              setCount(false);
+              
+            }}
+            className="translate-x-[-90px] translate-y-[20px] absolute"
+          />
 
-          <input type="checkbox" checked={!!num}
-          onChange={() => { setNum(num ? 0 : 1); setCount(false)}} 
-    //  onClick={addNewInput}
-          className="translate-x-[340px] translate-y-[-30px] absolute" />
-        {
-           ! noteid ?
-            <button type="submit" onClick={handleTask} className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
-            :
-             <button type="submit" onClick={UpdateTask} className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button> 
-        }
-
-         </div>
+          {!noteid ? (
+            <button
+              onClick={handleTask}
+              type="submit"
+              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Add
+            </button>
+           ) : (
+            <button
+              onClick={UpdateTask}
+              type="submit"
+              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Update
+            </button>
+          )}
+        </div>
 
          <div>
                {count && (

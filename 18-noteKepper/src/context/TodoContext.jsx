@@ -24,6 +24,10 @@ const TodoContextProvider = ({ children }) => {
 );
 
 
+const pinnedNotes = list.filter(item => item.pinned);
+const unpinnedNotes = list.filter(item => !item.pinned);
+
+
 
 
 function setLocal(ta){
@@ -172,7 +176,6 @@ function getLocal(){
     return (
         <TodoContext.Provider 
         value={{
-           
             handleChange,
             handleTask,
             handleDelete,

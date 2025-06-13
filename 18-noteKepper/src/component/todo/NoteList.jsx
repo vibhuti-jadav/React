@@ -5,7 +5,7 @@ import { RiHeartFill, RiPushpin2Fill } from "@remixicon/react";
 
 const NoteList = () => {
 
-    const {list,handleDelete,editTask,changeStatus} =useContext(TodoContext)
+  const {list,handleDelete,editTask,changeStatus} =useContext(TodoContext)
   return (
     <>
       <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 mx-5 mt-5 gap-2 '>
@@ -23,9 +23,7 @@ const NoteList = () => {
                   <p>
                     {ele.newinput}
                   </p>
-
-                  
-                }
+                } 
 
                 {/*{ele.todos &&  (
                       <ul  className="list-disc ml-6 mt-2 text-sm text-gray-600">
@@ -33,7 +31,8 @@ const NoteList = () => {
                           <li key={idx}>{todo}</li>
                         ))}
                       </ul>
-                    )}*/}
+                  )}*/}
+                     
 {/* 
           {ele.todos && (
             <ul className="list-disc ml-1 mt-2 text-sm text-gray-600">
@@ -77,7 +76,11 @@ const NoteList = () => {
                 <PencilSquareIcon className="size-6 text-blue-500"/>
                 </button>
               </div>
+
+
             </div>
+
+            
           ))
         } 
       </div>
