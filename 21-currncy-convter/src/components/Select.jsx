@@ -7,7 +7,7 @@ const Select = ({ curData, setCur, cur }) => {
 
   return (
     <>
-      <select value={cur} className="border ml-3 p-2 rounded px-6"
+      <select value={cur} className="border ml-3 p-2 rounded px-6 "
         onChange={(e) => setCur(e.target.value)}
         style={{ maxHeight: "500px" }}  >
         {keys.map((ele) => (

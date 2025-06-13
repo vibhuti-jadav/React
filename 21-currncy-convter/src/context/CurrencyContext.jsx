@@ -10,6 +10,9 @@ export const CurrencyContextProvider = ({ children }) => {
   const [preAmt, setPreAmt] = useState(0)
   const [nextAmt, setNextAmt] = useState(0)
 
+  const [key,setKey]=useState([]);
+  const [value,setValue]=useState([]);
+
   const api_url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${preCur}.json`;
 
   async function getCurrency() {
@@ -23,12 +26,22 @@ export const CurrencyContextProvider = ({ children }) => {
 
   useEffect(() => {
     getCurrency();
-  }, [preCur, preAmt]);
+  }, [preCur]);
 
+  useEffect(()=>{
+    handleConvert()
+  }, [preAmt, curData, nextCur])
+
+ function handleSwitch(){
+    setNextCur(preCur)
+    setPreCur(nextCur)
+  }
 
 
 async function handleConvert(){
-  await setNextAmt(preAmt * curData[nextCur])
+   setNextAmt(preAmt * curData[nextCur])
+  setKey(Object.keys(curData).slice(0, 5));
+    setValue(Object.values(curData).slice(0, 5));
   }
   console.log(nextAmt)
 
@@ -36,7 +49,7 @@ async function handleConvert(){
 
   return (
     <CurrencyContext.Provider
-      value={{ curData, nextCur, setNextCur, setPreCur, preCur, nextAmt, setPreAmt}}
+      value={{ curData, nextCur, setNextCur, setPreCur, preCur, nextAmt, setPreAmt,handleSwitch,key,value}}
     >
       {children}
     </CurrencyContext.Provider>
