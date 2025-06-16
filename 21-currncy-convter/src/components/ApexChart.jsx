@@ -31,10 +31,10 @@ import { CurrencyContext } from "../context/CurrencyContext";
                 align: 'left'
               },
               grid: {
-                row: {
-                  colors: ['#ffffff'], // takes an array which will be repeated on columns
-                  opacity: 0.5
-                },
+                // row: {
+                //   colors: ['#ffffff'], // takes an array which will be repeated on columns
+                //   opacity: 1
+                // },
               },
               xaxis: {
                 // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
@@ -74,12 +74,12 @@ import { CurrencyContext } from "../context/CurrencyContext";
                 text: 'Product Trends by Month',
                 align: 'left'
               },
-              grid: {
-                row: {
-                  colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                  opacity: 0.5
-                },
-              },
+              // grid: {
+              //   row: {
+              //     colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+              //     opacity: 0.5
+              //   },
+              // },
               xaxis: {
                 // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
                 // categories: ['1inch', 'aave', 'ada', 'aed', 'afn', 'agix', 'akt', 'algo','1inch', 'aave', 'ada', 'aed', 'afn', 'agix', 'akt', 'algo']
