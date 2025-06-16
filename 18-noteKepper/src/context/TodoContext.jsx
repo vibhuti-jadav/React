@@ -18,14 +18,11 @@ const TodoContextProvider = ({ children }) => {
     const [editId, setEditId] = useState("")
 
         const [searchText, setSearchText] = useState("");
+       const [openPickerId, setOpenPickerId] = useState(null); 
 
             const filteredList = list.filter(item =>
-  item.note.toLowerCase().includes(searchText.toLowerCase())
+        item.note.toLowerCase().includes(searchText.toLowerCase())
 );
-
-
-const pinnedNotes = list.filter(item => item.pinned);
-const unpinnedNotes = list.filter(item => !item.pinned);
 
 
 
@@ -80,7 +77,7 @@ function getLocal(){
                 newinput,
                 todos: noteList.filter((ele) => ele !== ""),
                 status: false,
-                
+                backgroundImage: "",
               }
         ]
         
@@ -110,6 +107,13 @@ function getLocal(){
     
     }
 
+  const updateBackgroundImage = (id, url) => {
+    const updated = list.map(item =>
+      item.id === id ? { ...item, backgroundImage: url } : item
+    );
+    setList(updated);
+    setOpenPickerId(null); // Hide picker after selection
+  };
 
 
 
@@ -197,6 +201,9 @@ function getLocal(){
             noteList,
             setSearchText,
             searchText,
+            updateBackgroundImage,
+           openPickerId,
+           setOpenPickerId
         }}>
             {children}
         </TodoContext.Provider>
