@@ -1,17 +1,21 @@
+import Alert from 'react-bootstrap/Alert';
 
-
-import { Col, Container, Row } from 'react-bootstrap'
-const About = () => {
+function AdditionalContentExample() {
   return (
-     <Container>
-        <Row className='row-cols-4 justify-content-center'>
-            <Col>
-             <h1>About</h1>
-            </Col>
-         
-        </Row>
-    </Container>
-  )
+    <Alert variant="primary" className='mt-2 w- ml-3'>
+      <Alert.Heading>About Page</Alert.Heading>
+      <p>
+        Aww yeah, you successfully read this important About message. This
+        example text is going to run a bit longer so that you can see how
+        spacing within an About works with this kind of content.
+      </p>
+      <hr />
+      <p className="mb-0">
+        Whenever you need to, be sure to use margin utilities to keep things
+        nice and tidy.
+      </p>
+    </Alert>
+  );
 }
 
-export default About
+export default AdditionalContentExample;

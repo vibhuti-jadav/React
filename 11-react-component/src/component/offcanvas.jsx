@@ -10,7 +10,7 @@ function Example() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" className='mt-1' onClick={handleShow}>
         Launch
       </Button>
 

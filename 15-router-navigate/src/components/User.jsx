@@ -60,24 +60,24 @@ console.log(userId)
         </Alert>
         </Container>
         :
-    <Container className='mt-5'>
+    <Container className='mt-5 '>
        {
         sdata.map((ele)=>(
-            <Card className='text-start p-2 h-100' >
+            <Card className='text-start p-2 border-0 shadow bg-secondary h-100' >
                 <Row>
                 <Col className='col-4'>
                     <Card.Img variant="top" className='rounded-circle ' src={ele.picture.large} />
                 </Col>
-                <Col className='col-8'>
+                <Col className='col-8 mt-5  '>
                         <Card.Body>
-                            <Card.Title>{ele.name.title} { ele.name.first} {ele.name.last}</Card.Title>
-                            <Card.Text>
+                            <Card.Title className=' mt-5' >{ele.name.title} { ele.name.first} {ele.name.last}</Card.Title>
+                            <Card.Text className=' mt-3'>
                             {ele.email}
                             </Card.Text>
-                            <Card.Subtitle>
+                            <Card.Subtitle className=' mt-3'>
                             {ele.cell}
                             </Card.Subtitle>
-                            <Button variant="primary">More</Button>
+                            <Button variant="dark" className=' mt-3 px-5 rounded'>More</Button>
                         </Card.Body>
                 </Col>
                 </Row>

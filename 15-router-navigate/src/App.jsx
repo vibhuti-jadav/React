@@ -7,7 +7,8 @@ import Contact from './components/Contact'
 import { Routes, Route, useNavigate, useLocation } from 'react-router'
 import User from './components/User'
 import Login from './components/Login'
-import Home from './components/home'
+import Home from './components/Home'
+
 
 function App() {
   const [log, setLog] = useState({email:"", password:""})
